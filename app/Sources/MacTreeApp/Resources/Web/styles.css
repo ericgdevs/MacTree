@@ -1,0 +1,248 @@
+/* MacTree CSS - Vanilla, minimal dependencies */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #e0e0e0;
+    background: #1e1e1e;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Top bar */
+#top-bar {
+    background: #2a2a2a;
+    border-bottom: 1px solid #444;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+#controls {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    padding: 6px 12px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #3a3a3a;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+button:hover:not(:disabled) {
+    background: #4a4a4a;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#path-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.path-label {
+    font-weight: 600;
+    color: #999;
+}
+
+.path-display {
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 11px;
+    color: #e0e0e0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#progress-text {
+    white-space: nowrap;
+    min-width: 200px;
+    color: #999;
+}
+
+#search-controls {
+    display: flex;
+    gap: 8px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 6px 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: #3a3a3a;
+    color: #e0e0e0;
+    font-size: 13px;
+}
+
+#search-input {
+    width: 200px;
+}
+
+#min-size-input {
+    width: 100px;
+}
+
+/* Main content area - vertical split */
+#main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Tree pane - top half */
+#tree-pane {
+    height: 50%;
+    border-bottom: 1px solid #444;
+    background: #252525;
+    display: flex;
+    flex-direction: column;
+}
+
+#breadcrumbs {
+    padding: 8px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #444;
+    font-size: 12px;
+    color: #999;
+}
+
+#tree-table-header {
+    display: flex;
+    padding: 8px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #444;
+    font-weight: 600;
+    color: #e0e0e0;
+    user-select: none;
+}
+
+.col-name { flex: 2; }
+.col-size { flex: 1; text-align: right; }
+.col-items { flex: 0.75; text-align: right; }
+.col-percent { flex: 0.75; text-align: right; }
+
+#tree-table-body {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.tree-row {
+    display: flex;
+    padding: 6px 8px;
+    border-bottom: 1px solid #333;
+    color: #e0e0e0;
+    cursor: pointer;
+}
+
+.tree-row:hover {
+    background: #3a3a3a;
+}
+
+.tree-row.selected {
+    background: #444;
+}
+
+.placeholder {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+}
+
+/* Treemap pane - bottom half */
+#treemap-pane {
+    height: 50%;
+    background: #2a2a2a;
+    position: relative;
+    overflow: hidden;
+}
+
+#treemap-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+.tooltip.hidden {
+    display: none;
+}
+
+/* Error panel */
+#error-panel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    max-height: 300px;
+    background: #2a2a2a;
+    border: 1px solid #f44336;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+#error-panel.hidden {
+    display: none;
+}
+
+#error-panel h3 {
+    margin-bottom: 12px;
+    color: #ff6b6b;
+}
+
+#error-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #e0e0e0;
+}
+
+.error-item {
+    padding: 6px;
+    background: #3a2020;
+    border-left: 3px solid #f44336;
+    margin-bottom: 6px;
+}

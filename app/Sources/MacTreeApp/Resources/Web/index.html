@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacTree</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Top control bar -->
+        <div id="top-bar">
+            <div id="controls">
+                <button id="select-folder-btn">Select Folder</button>
+                <button id="scan-btn" disabled>Scan</button>
+                <button id="cancel-btn" disabled>Cancel</button>
+                <button id="rescan-btn" disabled>Rescan</button>
+                <button id="show-finder-btn" class="hidden">Show in Finder</button>
+                <button id="open-folder-btn" class="hidden">Open Folder</button>
+            </div>
+            <div id="path-info">
+                <span class="path-label">Path:</span>
+                <span class="path-display">No folder selected</span>
+            </div>
+            <div id="progress">
+                <span id="progress-text">Ready</span>
+            </div>
+            <div id="search-controls">
+                <input type="text" id="search-input" placeholder="Search files/folders...">
+                <input type="number" id="min-size-input" placeholder="Min size (MB)">
+            </div>
+        </div>
+
+        <!-- Main content area: Top tree list + Bottom treemap -->
+        <div id="main-content">
+            <!-- Top: Tree table pane -->
+            <div id="tree-pane">
+                <div id="breadcrumbs"></div>
+                <div id="tree-table-header">
+                    <div class="col-name">Name</div>
+                    <div class="col-size">Size</div>
+                    <div class="col-items">Items</div>
+                    <div class="col-percent">%</div>
+                </div>
+                <div id="tree-table-body">
+                    <div class="placeholder">Select a folder to scan</div>
+                </div>
+            </div>
+
+            <!-- Bottom: Treemap pane -->
+            <div id="treemap-pane">
+                <canvas id="treemap-canvas" oncontextmenu="return false;"></canvas>
+                <div id="treemap-tooltip" class="tooltip hidden"></div>
+            </div>
+        </div>
+
+        <!-- Error summary panel (hidden by default) -->
+        <div id="error-panel" class="hidden">
+            <h3>Scan Errors</h3>
+            <div id="error-list"></div>
+            <button id="close-errors-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

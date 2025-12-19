@@ -1,0 +1,35 @@
+# Swift / Xcode / macOS Development
+.DS_Store
+*.swp
+*.swo
+*~
+.*.sw?
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+Package.resolved
+xcuserdata/
+*.xcworkspace
+
+# Build artifacts
+build/
+DerivedData/
+*.app
+*.dSYM.zip
+*.dSYM
+
+# IDE
+.vscode/
+.idea/
+*.xcodeproj
+*.xcworkspace
+
+# Logs and temporary files
+*.log
+*.tmp
+.env*
+
+# Application Support (SQLite cache will be in ~/Library/Application Support)
+# Not tracked here since it's user-specific runtime data
